@@ -1,5 +1,5 @@
-import * as React from "react";
-import styled from "styled-components/native";
+import React from 'react';
+import styled from 'styled-components/native';
 import {
   flex,
   alignItems,
@@ -14,7 +14,7 @@ import {
   space,
   width,
   borderRadius,
-} from "styled-system";
+} from 'styled-system';
 
 const Container = styled.View`
   justify-content : flex-start;
@@ -38,7 +38,7 @@ const ECContainer = (props) => <Container {...props} />;
 
 ECContainer.defaultProps = {
   p: 2,
-  bg: "white",
+  bg: 'white',
   width: '100%',
 }
 

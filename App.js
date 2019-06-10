@@ -1,12 +1,13 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
 
 import ThemeWrapper from './src/theme/ThemeWrapper';
+
+import Login from './src/components/screens/Login';
 
 export default function App() {
   return (
     <ThemeWrapper>
-      <Text>Teste</Text>
+      <Login />
     </ThemeWrapper>
   );
 }
