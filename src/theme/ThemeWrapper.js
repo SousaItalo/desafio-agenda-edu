@@ -20,6 +20,7 @@ const theme = {
   colors: {
     puple: colors.purple,
   },
+  space: [0, 4, 8, 12, 16, 20, 24],
   textStyles: {
     largeTitle: {
       fontSize: 25,

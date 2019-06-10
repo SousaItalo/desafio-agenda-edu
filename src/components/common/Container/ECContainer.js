@@ -37,7 +37,8 @@ const Container = styled.View`
 const ECContainer = (props) => <Container {...props} />;
 
 ECContainer.defaultProps = {
-  p: 2,
+  py: 2,
+  px: 6,
   bg: 'white',
   width: '100%',
 }
