@@ -8,7 +8,6 @@ import {
   flexDirection,
   alignContent,
   justifyItems,
-  justifySelf,
   alignSelf,
   color,
   space,
@@ -29,7 +28,6 @@ const Container = styled.View`
   ${flexDirection}
   ${alignContent}
   ${justifyItems}
-  ${justifySelf}
   ${alignSelf}
 `;
 
@@ -37,8 +35,6 @@ const Container = styled.View`
 const ECContainer = (props) => <Container {...props} />;
 
 ECContainer.defaultProps = {
-  py: 2,
-  px: 6,
   bg: 'white',
   width: '100%',
 }

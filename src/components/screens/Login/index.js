@@ -1,19 +1,48 @@
 import React, { Component } from 'react';
 
-import { ECContainer, ECButton, ECText } from '@common';
-
+import { ECContainer, ECButton, ECText, ECTextInput } from '@common';
 
 export default class Login extends Component {
   render() {
     return (
-      <ECContainer>
-        <ECButton>
+      <ECContainer
+        flex={1}
+        px='6'
+      >
+        <ECContainer
+          flex={1}
+          flexGrow='3'
+          justifyContent="flex-end"
+        >
           <ECText
-            fontWeight="4"
+            mb="8"
+            textStyle="largeTitle"
           >
-            Entrar
+            Faça seu login 🔑
           </ECText>
-        </ECButton>
+          <ECTextInput
+            mb='5'
+            label='E-mail ou usuário'
+          />
+          <ECTextInput
+            label='Senha'
+          />
+        </ECContainer>
+        <ECContainer
+          pb='8'
+          flex={1}
+          flexGrow='2'
+          justifyContent="flex-end"
+        >
+          <ECButton>
+            <ECText
+              fontWeight='4'
+              color='white'
+            >
+              Entrar
+            </ECText>
+          </ECButton>
+        </ECContainer>
       </ECContainer>
     );
   }

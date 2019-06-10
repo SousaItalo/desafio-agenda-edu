@@ -4,8 +4,11 @@ import { ThemeProvider } from 'styled-components/native';
 const colors = {
   purple: '#733DBE',
   black: '#333333',
-  gray: '#999999',
-  darkerGray: '#666666',
+  grays: [
+    '#ABB1B7',
+    '#999999',
+    '#666666',
+  ]
 };
 
 const fontWeights = [100, 200, 300, 400, 500, 600, 700, 800, 900];
@@ -17,20 +20,23 @@ const theme = {
       borderColor: colors.purple,
     }
   },
-  colors: {
-    puple: colors.purple,
-  },
-  space: [0, 4, 8, 12, 16, 20, 24],
+  borderWidths: [0, 0.75, 2, 4, 6, 8],
+  colors: {...colors},
+  space: [0, 4, 8, 13, 15, 17, 20, 24, 36],
   textStyles: {
     largeTitle: {
       fontSize: 25,
-      fontWeight: fontWeights[600],
+      fontWeight: fontWeights[5],
       color: colors.black,
     },
     title: {
       fontSize: 16,
       fontWeight: fontWeights[3],
       color: colors.black,
+    },
+    label: {
+      fontSize: 14,
+      color: colors.grays[2],
     },
     subtitle: {
       fontSize: 14,
@@ -43,6 +49,7 @@ const theme = {
     }
   },
   fontWeights: fontWeights,
+  fontSizes: [12, 14, 16, 20, 25],
 };
 
 export default class ThemeWrapper extends Component {

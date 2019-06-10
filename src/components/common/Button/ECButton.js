@@ -22,6 +22,7 @@ const BaseButton = styled.TouchableOpacity`
 const ECButton = (props) => <BaseButton {...props}/>
 
 ECButton.defaultProps = {
+  width: '100%',
   variant: 'primary',
   borderRadius: 5,
 }
