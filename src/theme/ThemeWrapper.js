@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 import { ThemeProvider } from 'styled-components/native';
 
 const colors = {
-  purple: '#733DBE',
+  purples: [
+    'rgba(115, 61, 190, 0.10)',
+    'rgba(115, 61, 190, 0.15)',
+  ],
+  mainPurple: '#733DBE',
   black: '#333333',
   grays: [
     '#ABB1B7',
@@ -16,11 +20,11 @@ const fontWeights = [100, 200, 300, 400, 500, 600, 700, 800, 900];
 const theme = {
   buttons: {
     primary: {
-      backgroundColor: colors.purple,
-      borderColor: colors.purple,
+      backgroundColor: colors.mainPurple,
+      borderColor: colors.mainPurple,
     }
   },
-  borderWidths: [0, 0.75, 2, 4, 6, 8],
+  borderWidths: [0, 0.75, 1, 2, 4, 6, 8],
   colors: {...colors},
   space: [0, 4, 8, 13, 15, 17, 20, 24, 36],
   textStyles: {
@@ -36,7 +40,7 @@ const theme = {
     },
     label: {
       fontSize: 14,
-      color: colors.grays[2],
+      color: colors.grays[1],
     },
     subtitle: {
       fontSize: 14,
@@ -50,6 +54,7 @@ const theme = {
   },
   fontWeights: fontWeights,
   fontSizes: [12, 14, 16, 20, 25],
+  widths: [16, 32, 64, 128, 256, '100%'],
 };
 
 export default class ThemeWrapper extends Component {

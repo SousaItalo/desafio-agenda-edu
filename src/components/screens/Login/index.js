@@ -2,7 +2,23 @@ import React, { Component } from 'react';
 
 import { ECContainer, ECButton, ECText, ECTextInput } from '@common';
 
+const input = {
+  EMAIL: 1,
+  PASSWORD: 2,
+};
+
 export default class Login extends Component {
+  state = {
+    focusedInput: null,
+  }
+
+  setFocusedInput = (inputId) => () => {
+    this.setState({
+      ...this.state,
+      focusedInput: inputId,
+    });
+  }
+
   render() {
     return (
       <ECContainer
@@ -23,9 +39,15 @@ export default class Login extends Component {
           <ECTextInput
             mb='5'
             label='E-mail ou usuário'
+            isFocused={this.state.focusedInput === input.EMAIL}
+            onFocus={this.setFocusedInput(input.EMAIL)}
+            onBlur={this.setFocusedInput(null)}
           />
           <ECTextInput
             label='Senha'
+            isFocused={this.state.focusedInput === input.PASSWORD}
+            onFocus={this.setFocusedInput(input.PASSWORD)}
+            onBlur={this.setFocusedInput(null)}
           />
         </ECContainer>
         <ECContainer

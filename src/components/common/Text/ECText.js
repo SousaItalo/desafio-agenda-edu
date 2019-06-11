@@ -4,21 +4,20 @@ import {
   textStyle,
   color,
   fontWeight,
-  space
+  space,
 } from 'styled-system';
 
 const BaseText = styled.Text`
   ${space};
   ${textStyle};
   ${color};
-  ${fontWeight}
+  ${fontWeight};
 `;
 
 const ECText = (props) => <BaseText {...props} />
 
 ECText.defaultProps = {
   textStyle: 'body',
-  color: 'black',
 }
 
 export default ECText;
