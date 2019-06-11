@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 
-import { ECText, ECDivider, ECContainer, ECCard } from '@common';
+import { ECContainer } from '@common';
 import ListDivider from './ListDivider';
+import EventCard from './EventCard';
+
 
 export default class EventsList extends Component {
   render() {
@@ -11,9 +13,10 @@ export default class EventsList extends Component {
         px='6'
       >
         <ListDivider />
-        <ECCard>
-          <ECText>teste teste</ECText>
-        </ECCard>
+        <EventCard />
+        <EventCard />
+        <ListDivider />
+        <EventCard />
       </ECContainer>
     );
   }

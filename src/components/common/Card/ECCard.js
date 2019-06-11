@@ -14,6 +14,7 @@ const Card = styled(ECContainer)`
   ${space};
   border-left-width: 4px;
   border-left-color: ${props => props.theme.colors.mainPurple};
+  overflow: hidden;
 `;
 
 const ECCard = ({children, ...props}) => <Card {...props}>{children}</Card>;

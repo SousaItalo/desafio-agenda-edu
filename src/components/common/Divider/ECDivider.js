@@ -5,7 +5,7 @@ import { width, border } from 'styled-system';
 const Line = styled.View`
   borderBottomWidth: ${props => props.theme.borderWidths[1]};
   borderColor: ${props => props.theme.colors.purples[1]};
-  width: 60%;
+  width: 55%;
 `;
 
 const ECDivider = () => <Line />;
