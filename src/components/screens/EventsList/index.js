@@ -9,13 +9,10 @@ export default class EventsList extends Component {
   render() {
     return (
       <ECContainer
-        pt="8"
+        pt='8'
         px='6'
+        flex={1}
       >
-        <ListDivider />
-        <EventCard />
-        <EventCard />
-        <ListDivider />
         <EventCard />
       </ECContainer>
     );

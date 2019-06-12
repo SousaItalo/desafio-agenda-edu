@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { space } from 'styled-system';
+import {
+  space,
+  alignSelf,
+} from 'styled-system';
 
 import ECContainer from '../Container';
 
@@ -11,10 +14,11 @@ const Card = styled(ECContainer)`
   shadow-radius: 10;
   elevation: 4;
   border-radius: 5px;
-  ${space};
   border-left-width: 4px;
   border-left-color: ${props => props.theme.colors.mainPurple};
   overflow: hidden;
+  ${space};
+  ${alignSelf};
 `;
 
 const ECCard = ({children, ...props}) => <Card {...props}>{children}</Card>;

@@ -8,7 +8,8 @@ import EventsList from './src/components/screens/EventsList';
 export default function App() {
   return (
     <ThemeWrapper>
-      <EventsList />
+      <Login />
+      {/* <EventsList /> */}
     </ThemeWrapper>
   );
 };
