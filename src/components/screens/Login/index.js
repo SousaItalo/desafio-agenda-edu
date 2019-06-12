@@ -18,6 +18,12 @@ export default class Login extends Component {
 
   loginForm = React.createRef();
 
+  static navigationOptions = () => {
+    return {
+        header: null,
+    };
+  };
+
   setFocusedInput = (inputId) => () => {
     this.setState({
       ...this.state,
@@ -79,6 +85,7 @@ export default class Login extends Component {
                   Icon={() => <Icon name="eye-off-outline" size={19} color="#AAAAAA"/> }
                   value={values.password}
                   onChangeText={handleChange('password')}
+                  secureTextEntry={true}
                 />
               </Fragment>
             )}

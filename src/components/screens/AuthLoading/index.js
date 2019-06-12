@@ -5,11 +5,7 @@ import { ECContainer, ECText } from '@common';
 import * as Api from "@services/api";
 
 export default class AuthLoading extends Component {
-  componentDidMount() {
-    this.trySessionLogin()
-  }
-
-  trySessionLogin = async () => {
+  async componentDidMount() {
     const { navigation } = this.props;
     const token = await SecureStore.getItemAsync('token');
     Api.setToken(token);

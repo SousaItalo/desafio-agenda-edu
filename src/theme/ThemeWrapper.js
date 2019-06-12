@@ -26,7 +26,7 @@ const theme = {
   },
   borderWidths: [0, 0.75, 1, 2, 4, 6, 8],
   colors: {...colors},
-  space: [0, 4, 8, 13, 15, 17, 20, 24, 36, 64],
+  space: [0, 4, 8, 11, 13, 15, 17, 20, 24, 36, 64],
   textStyles: {
     largeTitle: {
       fontSize: 25,

@@ -15,7 +15,6 @@ export const login = async (email, password) => {
 };
 
 export const getEvents = async (limit = 10, page = 1) => {
-  console.log('aqui')
   try {
     const response = await api.get(`events?limit=${limit};page=${page}`);
     return response;

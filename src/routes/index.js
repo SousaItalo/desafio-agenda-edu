@@ -11,15 +11,33 @@ import CustomDrawer from './CustomDrawer';
 import Login from "../components/screens/Login";
 import EventsList from "../components/screens/EventsList";
 import AuthLoading from "../components/screens/AuthLoading";
+import About from "../components/screens/About";
 
-const AppStack = createDrawerNavigator(
+const EventsStack = createStackNavigator(
   {
-    EventsList: EventsList
+    EventsList: {
+      screen: EventsList
+    }
+  },
+);
+
+const AboutStack = createStackNavigator(
+  {
+    About: {
+      screen: About,
+    }
+  }
+);
+
+const AppDrawer = createDrawerNavigator(
+  {
+    EventsStack: EventsStack,
+    AboutStack: AboutStack,
   },
   {
     contentComponent: CustomDrawer,
   }
-);
+)
 
 const AuthStack = createStackNavigator({
   Login: Login
@@ -28,9 +46,15 @@ const AuthStack = createStackNavigator({
 export default createAppContainer(
   createSwitchNavigator(
     {
-      AuthLoading: AuthLoading,
-      App: AppStack,
-      Auth: AuthStack
+      AuthLoading: {
+        screen: AuthLoading,
+      },
+      App: {
+        screen: AppDrawer,
+      },
+      Auth: {
+        screen: AuthStack,
+      },
     },
     {
       initialRouteName: "AuthLoading"

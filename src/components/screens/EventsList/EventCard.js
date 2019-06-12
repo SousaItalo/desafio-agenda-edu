@@ -22,7 +22,7 @@ export default class EventCard extends Component {
         mr="1"
       >
         <EventImage
-          source={{uri: 'https://images.unsplash.com/photo-1463797221720-6b07e6426c24?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80'}}
+          source={{uri: this.props.image}}
         />
         <ECContainer>
           <ECText
@@ -37,20 +37,20 @@ export default class EventCard extends Component {
             color="black"
             mb="2"
           >
-            Aula especial de natação
+            {this.props.title}
           </ECText>
           <ECText
             textStyle="subtitle"
             color="grays.2"
             mb="3"
           >
-            <AntDesign name="clockcircleo" size={14} color="#666666"/> 14:00
+            <AntDesign name="clockcircleo" size={14} color="#666666"/> {this.props.startTime}
           </ECText>
           <ECText
             textStyle="caption"
             color="grays.1"
           >
-            Quarta, 25 de janeiro às 20:00h
+            {this.props.startDate}
           </ECText>
         </ECContainer>
       </ECCard>
