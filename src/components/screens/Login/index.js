@@ -1,7 +1,10 @@
 import React, { Component, Fragment } from 'react';
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
 import { Formik } from 'formik';
+import * as SecureStore from 'expo-secure-store';
+
 import { ECContainer, ECButton, ECText, ECTextInput } from '@common';
+import * as Api from "@services/api";
 
 const input = {
   EMAIL: 1,
@@ -26,6 +29,14 @@ export default class Login extends Component {
     this.loginForm.current.submitForm()
   }
 
+  handleSubmit = async ({email, password}) => {
+    const response = await Api.login(email, password);
+    if(response.data.token) {
+      await SecureStore.setItemAsync('token', response.data.token);
+      this.props.navigation.navigate('App');
+    }
+  }
+
   render() {
     return (
       <ECContainer
@@ -45,7 +56,7 @@ export default class Login extends Component {
           </ECText>
           <Formik
             initialValues={{ email: '', password: '' }}
-            onSubmit={values => console.log(values)}
+            onSubmit={values => this.handleSubmit(values)}
             ref={this.loginForm}
           >
             {({values, handleChange}) => (

@@ -36,7 +36,6 @@ const ECContainer = (props) => <Container {...props} />;
 
 ECContainer.defaultProps = {
   bg: 'white',
-  width: '100%',
 }
 
 export default ECContainer;

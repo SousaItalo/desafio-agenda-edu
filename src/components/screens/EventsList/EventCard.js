@@ -19,6 +19,7 @@ export default class EventCard extends Component {
       <ECCard
         flexDirection="row"
         mb="2"
+        mr="1"
       >
         <EventImage
           source={{uri: 'https://images.unsplash.com/photo-1463797221720-6b07e6426c24?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80'}}
