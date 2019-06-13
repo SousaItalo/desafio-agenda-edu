@@ -11,9 +11,15 @@ const input = {
   PASSWORD: 2,
 };
 
+const error = {
+  AUTH: 'Seu email e/ou senha estão errados, por favor digite novamente',
+  DEFAULT: 'Ops... Algo deu errado, tente novamente em alguns instantes ou contate o suporte',
+}
+
 export default class Login extends Component {
   state = {
     focusedInput: null,
+    error: null,
   }
 
   loginForm = React.createRef();
@@ -37,9 +43,20 @@ export default class Login extends Component {
 
   handleSubmit = async ({email, password}) => {
     const response = await Api.login(email, password);
+    console.log(response);
     if(response.data.token) {
       await SecureStore.setItemAsync('token', response.data.token);
       this.props.navigation.navigate('App');
+    } else if(response.status === 401) {
+      this.setState({
+        ...this.state,
+        error: error.AUTH,
+      });
+    } else {
+      this.setState({
+        ...this.state,
+        error: error.DEFAULT,
+      });
     }
   }
 
@@ -90,6 +107,14 @@ export default class Login extends Component {
               </Fragment>
             )}
           </Formik>
+          {this.state.error &&
+            <ECText
+              color="red"
+              fontSize="0"
+            >
+              *{this.state.error}
+            </ECText>
+          }
         </ECContainer>
         <ECContainer
           pb='8'
