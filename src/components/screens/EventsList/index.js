@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import { View, FlatList } from 'react-native';
+import moment from 'moment';
 
 import { ECContainer } from '@common';
 import * as Api from "@services/api";
 
-import ListDivider from './ListDivider';
 import EventCard from './EventCard';
-import moment from 'moment';
 
 export default class EventsList extends Component {
   state = {
     events: [],
     lastDividerDay: null,
     renderDivider: false,
+    nextPage: 1,
   }
 
   static navigationOptions = {
@@ -20,13 +20,25 @@ export default class EventsList extends Component {
   };
 
   fetchEvents = async () => {
-    const { data: response, status } = await Api.getEvents();
+    const { data: response, status } = await Api.getEvents(4, this.state.nextPage);
 
     if(status === 200) {
+      let lastDivisorDate = null;
+
+      const events = response.data.map(event => {
+        const renderDivisor = lastDivisorDate === null || !moment.utc(event.startAt).isSame(lastDivisorDate, 'day');
+
+        if(renderDivisor) {
+          lastDivisorDate = moment.utc(event.startAt);
+        }
+
+        return {...event, renderDivisor }
+      });
+
       this.setState({
         ...this.state,
-        events: response.data,
-        meta: response.metadata,
+        events: [...this.state.events, ...events],
+        nextPage: this.state.nextPage < response.metadata.total_pages ? this.state.nextPage + 1 : null,
       });
     }
   }
@@ -35,35 +47,19 @@ export default class EventsList extends Component {
     this.fetchEvents();
   }
 
-  renderEvent = (event) => {
-    const startAt = moment.utc(event.startAt);
-
-    return (
-      <EventCard
-        title={event.title}
-        image={event.image}
-        location={event.location}
-        startTime={startAt.format('HH:mm')}
-        startDate={startAt.format('LLLL')}
-      />
-    );
-  }
-
-  renderSeparator = () => <ListDivider />;
-
   render() {
     return (
       <ECContainer
         flex={1}
         px='6'
-        pt="2"
       >
         <FlatList
           data={this.state.events}
-          renderItem={({ item }) => this.renderEvent(item)}
+          renderItem={({ item }) => <EventCard event={item} navigation={this.props.navigation}/>}
           keyExtractor={(item, index) => index.toString()}
           showsVerticalScrollIndicator={false}
-          ItemSeparatorComponent={this.renderSeparator}
+          onEndReached={this.fetchEvents}
+          onEndReachedThreshold={0.1}
         />
       </ECContainer>
     );

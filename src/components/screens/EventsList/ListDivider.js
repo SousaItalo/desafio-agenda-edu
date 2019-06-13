@@ -16,7 +16,7 @@ export default class ListDivider extends Component {
           textStyle="label"
           styles={{lineHeight: 5}}
         >
-          Quarta, 25 de janeiro
+          {this.props.date}
         </ECText>
         <ECDivider />
       </ECContainer>

@@ -10,13 +10,17 @@ import CustomDrawer from './CustomDrawer';
 
 import Login from "../components/screens/Login";
 import EventsList from "../components/screens/EventsList";
+import EventDetails from "../components/screens/EventDetails";
 import AuthLoading from "../components/screens/AuthLoading";
 import About from "../components/screens/About";
 
 const EventsStack = createStackNavigator(
   {
     EventsList: {
-      screen: EventsList
+      screen: EventsList,
+    },
+    EventDetails: {
+      screen: EventDetails,
     }
   },
 );

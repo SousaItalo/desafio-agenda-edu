@@ -14,6 +14,9 @@ export default class About extends Component {
       >
         <ECText>
           Este é um app feito como desafio tecnico para vaga de front end na Agenda Edu.
+          Com este app meu principal objetivo foi mostrar como eu organizaria um projeto
+          real utilizando as libs styled-system e styled-components disponiveis para react
+          e react native.
         </ECText>
       </ECContainer>
     );

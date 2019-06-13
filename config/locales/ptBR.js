@@ -13,7 +13,7 @@ const ptBR = {
       LT: "HH:mm",
       L: "DD/MM/YYYY",
       LL: "D [de] MMMM [de] YYYY",
-      LLL: "D [de] MMMM [de] YYYY [às] LT",
+      LLL: "dddd, D [de] MMMM",
       LLLL: "dddd, D [de] MMMM [às] LT[h]"
     },
     calendar: {
